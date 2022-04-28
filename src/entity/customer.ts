@@ -13,6 +13,9 @@ export default class Customer{
         this.validate();
     }
 
+    get name(): string{
+        return this._name;
+    }
 
     validate(){
         
@@ -29,9 +32,13 @@ export default class Customer{
         this.validate();
     }
 
+    isActive(): boolean{
+        return this._active;
+    }
+
     activate(){
         if(this._address === undefined){
-            throw new Error("Address is required");
+            throw new Error("Address is mandatory to activate customer");
         }
         this._active = true;
     }
