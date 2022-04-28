@@ -1,7 +1,11 @@
-describe("Customer Unit Test", () => {
+import Customer from "./customer";
 
-    it("should get 1 as result", () => {
-        const result = 1;
-        expect(result).toBe(1);
+describe("Customer unit Test", () => {
+
+    it("should throw error when id is empty", () => {
+        
+        expect(() => {
+            let customer = new Customer("", "Leo");
+        }).toThrowError("Id is required");
     });
 });
