@@ -1,7 +1,7 @@
 {
-    "jcs": {
-        "parcer": {
-            "sintax": "typescript",
+    "jsc": {
+        "parser": {
+            "syntax": "typescript",
             "decorators": true
         },
         "transform": {
