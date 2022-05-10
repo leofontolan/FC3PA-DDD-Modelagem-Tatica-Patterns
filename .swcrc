@@ -1,0 +1,12 @@
+{
+    "jcs": {
+        "parcer": {
+            "sintax": "typescript",
+            "decorators": true
+        },
+        "transform": {
+            "legacyDecorator": true,
+            "decoratorMetadata": true
+        }
+    }
+}
