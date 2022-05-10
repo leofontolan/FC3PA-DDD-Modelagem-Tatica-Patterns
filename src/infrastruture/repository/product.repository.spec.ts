@@ -37,7 +37,7 @@ describe("Product repository test", () => {
             id: "1",
             name: "Product 1",
             price: 100,
-            
+
         });
     });
 
@@ -68,6 +68,42 @@ describe("Product repository test", () => {
             price: 200,
         });
 
+
         
     });
+
+    it("should find a product", async () => {
+        const productRepository = new ProductRepository();
+        const product = new Product("1", "Product 1", 100);
+
+        await productRepository.create(product);
+
+        const productModel = await ProductModel.findOne({ where: { id: "1" } });
+
+        const foundProduct = await productRepository.find("1");
+
+        expect(productModel.toJSON()).toStrictEqual({
+            id: foundProduct.id,
+            name: foundProduct.name,
+            price: foundProduct.price,
+        });
+    });
+
+    it("should find all products", async () => {    
+        const productRepository = new ProductRepository();
+        const product = new Product("1", "Product 1", 100);
+
+        await productRepository.create(product);
+
+        const product2 = new Product("2", "Product 2", 200);
+        await productRepository.create(product2);
+
+        const foundProducts = await productRepository.findAll();
+        const products = [product, product2];
+
+
+        expect(products).toEqual(foundProducts);
+    });
+
+
 });
